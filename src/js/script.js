@@ -28,16 +28,15 @@ console.log(result); */
 console.log(`https://someurl/${category}/${numberOfToy}`); */
 
 
+/* {
+// ///************** first practice ************** ///
 
-{
-/* ///************** first practice **************/// */
-
-/* ********* 1 task ********* */
+// ********* 1 task *********
 const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
 console.log(numberOfFilms);
 
 
-/* ********* 2 task ********* */
+// ********* 2 task *********
 let personalMovieDB = {
     count: numberOfFilms,
     movies: {},
@@ -47,7 +46,7 @@ let personalMovieDB = {
 };
 
 
-/* ********* 3 task ********* */
+// ********* 3 task ********* 
 let film = prompt("Один из последних просмотренных фильмов?", ""),
     assessment = prompt("На сколько оцените его?"),
     film2 = prompt("Один из последних просмотренных фильмов?", ""),
@@ -58,5 +57,56 @@ personalMovieDB.movies[film2] = assessment2;
 
 
 console.log(personalMovieDB);
+} */
+
+/* let num = '50';
+switch (+num) { //switch проверяет в строгом режиме. Поэтому нужен унарный плюс
+    case 50: 
+        console.log('oK');
+        break;
+    default: console.log('NO');
+} */
+
+
+{
+    // ///************** second practice ************** ///
+
+const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+console.log(numberOfFilms);
+
+let personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+};
+
+    // ********* 1-2 task *********
+for(let i = 0; i < 1; i++) {
+    let film, assessment;
+
+    do {
+        film = prompt("Один из последних просмотренных фильмов?", "");
+        assessment = prompt("На сколько оцените его?");
+    }
+    while ( (film == null || assessment == null) || 
+            ( (film == "") || (film.length > 50) ) || 
+            ( (assessment == "") || (assessment.length > 50) ) 
+          );
+
+    personalMovieDB.movies[film] = assessment;
 }
 
+    // ********* 3 task *********
+if (personalMovieDB.count < 10) {
+    console.log('Просмотрено довольно мало фильмов');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+    console.log("Вы классический зритель");
+} else {
+    console.log("Вы киноман");
+}
+
+console.log(personalMovieDB);
+
+}
