@@ -1,4 +1,5 @@
 "use strict";
+
 /* a = 15; */
 /* let number = 10;
 
@@ -25,3 +26,37 @@ console.log(result); */
 /* let category = 'toys',
     numberOfToy = 5;
 console.log(`https://someurl/${category}/${numberOfToy}`); */
+
+
+
+{
+/* ///************** first practice **************/// */
+
+/* ********* 1 task ********* */
+const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+console.log(numberOfFilms);
+
+
+/* ********* 2 task ********* */
+let personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+};
+
+
+/* ********* 3 task ********* */
+let film = prompt("Один из последних просмотренных фильмов?", ""),
+    assessment = prompt("На сколько оцените его?"),
+    film2 = prompt("Один из последних просмотренных фильмов?", ""),
+    assessment2 = prompt("На сколько оцените его?");
+
+personalMovieDB.movies[film] = assessment;
+personalMovieDB.movies[film2] = assessment2;
+
+
+console.log(personalMovieDB);
+}
+
