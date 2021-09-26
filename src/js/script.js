@@ -68,7 +68,7 @@ switch (+num) { //switch проверяет в строгом режиме. По
 } */
 
 
-{
+/* {
     // ///************** second practice ************** ///
 
 const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
@@ -109,4 +109,76 @@ if (personalMovieDB.count < 10) {
 
 console.log(personalMovieDB);
 
+} */
+
+
+let numberOfFilms;
+checkCorrectNumOfFilms();
+
+let personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+};
+
+getStatusHowManyFilmsChecked();
+askAboutTheFilm();
+writeYourGenres();
+
+showMyDB();
+
+
+
+//functions
+function askAboutTheFilm() { //спрашвает название одного из просмотренных фильмов и вашу оценку
+    for(let i = 0; i < 1; i++) {
+        let film, assessment;
+    
+        do {
+            film = prompt("Один из последних просмотренных фильмов?", "");
+            assessment = prompt("На сколько оцените его?");
+        } while ( (film == null || assessment == null) || 
+                ( (film == "") || (film.length > 50) ) || 
+                ( (assessment == "") || (assessment.length > 50) ) 
+                );
+    
+        personalMovieDB.movies[film] = assessment;
+
+    }
+}
+
+function checkCorrectNumOfFilms() { //спрашивает кол-во просмотренных фильмов
+    do {
+        numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+    } while ( numberOfFilms == null || numberOfFilms == "" || numberOfFilms < 0 || isNaN(numberOfFilms) );
+}
+
+function getStatusHowManyFilmsChecked() { //определяет киноман вы или смотрите фильмов не очень много
+    if (personalMovieDB.count < 10) {
+        console.log('Просмотрено довольно мало фильмов');
+    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+        console.log("Вы классический зритель");
+    } else {
+        console.log("Вы киноман");
+    }
+}
+
+function showMyDB() { //выводит данные о пользователе касаемо фильмов
+    if(!personalMovieDB.privat) {
+        console.log(personalMovieDB);
+    }
+}
+
+function writeYourGenres() { //спрашивает пользователя о любимых жанрах
+    let favoriteGenre;
+    for (let i = 0; i < 3; i++) {
+        
+        do {
+            favoriteGenre = prompt(`Ваш любимый жанр под номером ${i + 1} - `, "");
+        } while ( favoriteGenre == null || favoriteGenre == "" || favoriteGenre.length < 2 );
+
+        personalMovieDB.genres[i] = favoriteGenre;
+    }
 }
