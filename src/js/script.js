@@ -1,6 +1,29 @@
 "use strict";
 
-let personalMovieDB = {
+const   box = document.getElementById('box'),
+        buttons = document.getElementsByTagName('button')[1],
+        circles = document.getElementsByClassName('circle'),
+        hearts = document.querySelectorAll('.heart'),
+        wrapper = document.querySelector('.wrapper');
+
+/* hearts.forEach(item => { 
+    item.style.backgroundColor = "black";//устаревшее 
+}); */
+
+/* hearts.forEach(item => { 
+    item.style.cssText = "background-color: black";
+}); */
+
+const div = document.createElement('div');
+div.classList.add('black');
+
+/* wrapper.append(div);//append - после
+wrapper.prepend(div);//prepend - до */
+hearts[0].before(div);
+circles[0].remove();
+wrapper.insertAdjacentHTML("afterbegin", "<h2>Hello</h2>");
+
+/* let personalMovieDB = {
     count:  0,
     movies: {},
     actors: {},
@@ -79,5 +102,6 @@ personalMovieDB.getStatusHowManyFilmsChecked();
 personalMovieDB.askAboutTheFilm();
 personalMovieDB.writeYourGenres();
 
-personalMovieDB.showMyDB();
+personalMovieDB.showMyDB(); */
+
 
